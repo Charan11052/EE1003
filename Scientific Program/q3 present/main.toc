@@ -1,0 +1,12 @@
+\beamer@sectionintoc {2}{Problem}{3}{0}{1}
+\beamer@sectionintoc {3}{Solution}{4}{0}{2}
+\beamer@subsectionintoc {3}{1}{Matrix Equation}{4}{0}{2}
+\beamer@subsectionintoc {3}{2}{Point of Intersection}{5}{0}{2}
+\beamer@subsectionintoc {3}{3}{Area}{6}{0}{2}
+\beamer@subsectionintoc {3}{4}{computational solutions}{7}{0}{2}
+\beamer@subsectionintoc {3}{5}{Left Riemann}{8}{0}{2}
+\beamer@subsectionintoc {3}{6}{Right Riemann}{9}{0}{2}
+\beamer@subsectionintoc {3}{7}{Mid Point Rule}{10}{0}{2}
+\beamer@subsectionintoc {3}{8}{Method of Exhaustion}{11}{0}{2}
+\beamer@subsectionintoc {3}{9}{Trapezoidal Rule}{13}{0}{2}
+\beamer@subsectionintoc {3}{10}{Plot}{16}{0}{2}

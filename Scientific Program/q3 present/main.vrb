@@ -1,0 +1,11 @@
+\frametitle{Area}
+\begin{align}
+	Area: A &= A_1 + A_2 \label{eq:total_area} \\
+    A_1 &= \int_{0}^{4} x \, dx \\
+    &= \sbrak{\frac{x^2}{2}}_{0}^{4} \\
+    &= 8 \\
+    A_2 &= \int_{4}^{4\sqrt{2}} \sqrt{32 - x^2} \, dx \\
+    &= \sbrak{\frac{x\sqrt{32 - x^2}}{2} + 16\sin^{-1}{\frac{x}{4\sqrt{2}}}}_{4}^{4\sqrt{2}} \\
+    &= 4\pi - 8 \\
+    \therefore A &= A_1 + A_2 = 4\pi \approx 12.56637
+\end{align}%
