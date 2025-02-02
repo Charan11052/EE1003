@@ -83,21 +83,25 @@ This can be written in matrix form as:
 
 Any non-singular matrix can be represented as a product of a lower triangular matrix $L$ and an upper triangular matrix $U$
 \begin{align}
-    A\vec{x} = LU\vec{x} = \vec{b}
+	\vec{ A}\vec{x} = \vec{L}\vec{U}\vec{x} = \vec{b}
 \end{align}
-
-The upper triangular matrix $U$ is found by row reducing $A$:
+\textbf{Factorization of LU:}\\
+Given a matrix $ \mathbf{A} $ of size $ n \times n $, LU decomposition is performed row by row and column by column. The update equations are as follows: 
+\begin{itemize}
+    \item Start by initializing $ \mathbf{L} $ as the identity matrix $ \mathbf{L} = \mathbf{I} $ and $ \mathbf{U} $ as a copy of $ \mathbf{A} $.\\
+    \item For each column $ j \geq k $, the entries of $ U $ in the $ k $-th row are updated as:
+    \begin{align}
+        U_{k,j} = A_{k,j} - \sum_{m=1}^{k-1} L_{k,m} \cdot U_{m,j}\quad \forall \quad j \geq k
+    \end{align}
+    \item For each row $ i > k $, the entries of $ L $ in the $ k $-th column are updated as:
+    \begin{align}
+        L_{i,k} = \frac{1}{U_{k,k}} \brak{ A_{i,k} - \sum_{m=1}^{k-1} L_{i,m} \cdot U_{m,k}} \quad \forall \quad i > k
+    \end{align}
+\end{itemize}
+By doing the following steps and solving we get :
 \begin{align}
-    \myvec{5 & 1\\6 & -3} \xrightarrow{R_2 \rightarrow R_2 - \frac{6}{5}R_1} \myvec{5 & 1\\0 & -\frac{21}{5}}
-\end{align}
-Let 
-\begin{align}
-    L = \myvec{1 & 0\\ l_{21} & 1}
-\end{align}
-$l_{21}$ is the multiplier used to zero $a_{21}$, so $l_{21} = \frac{6}{5}$.\\
-\newline
-\begin{align}
-    L = \myvec{1 & 0\\\frac{6}{5} & 1}
+	\vec{U}=\myvec{5 & 1\\0 & -\frac{21}{5}} \\
+	\vec{ L} = \myvec{1 & 0\\\frac{6}{5} & 1}
 \end{align}
 
 Now,
