@@ -64,7 +64,7 @@
 E: an even number greater than 4\\
 
 \textbf{Solution:}\\
-\section{Theoretical Solution}
+
 \begin{enumerate}
     \item \textbf{Total Number of Possible Outcomes}\\
     Let $X$ be the random variable representing the outcome of a single die roll. The sample space is $ S = \cbrak{1, 2, 3, 4, 5, 6}$.  We are interested in the event $E$ where the outcome is an even number greater than 4.  The only outcome satisfying this condition is 6.
@@ -74,44 +74,63 @@ E: an even number greater than 4\\
 
 $$P(E) = \frac{\text{Number of outcomes in E}}{\text{Total number of outcomes in S}} = \frac{1}{6}$$
     \item \textbf{Defining the Random Variable}\\
-    We model this problem using Bernoulli random variables,\\
-    Let $X$ be the random variable that represents the die turn up to be a 6:
+    The PMF of the random variable $X$ is given by:
+
+$$P_X(x) = \begin{cases}
+    \frac{1}{6}, & x \in \{1, 2, 3, 4, 5, 6\} \\
+    0, & \text{otherwise}
+\end{cases}$$
+
+For the event $E$ (rolling a 6), we can define a new random variable $Y$ such that:\\
+    Let $Y$ be the random variable that represents the die turn up to be a 6:
     \begin{align}
-        X &= 1, \text{ If the number is 6, \brak{\text{With probability }p = \frac{1}{6}}}\\
-        X &= 0, \text{ if number gets in \cbrak{1,2,3,4,5}, \brak{\text{With probability } 1 -p = \frac{5}{6}}}
+        Y &= 1, \text{ If the number is 6, \brak{\text{With probability }p = \frac{1}{6}}}\\
+        Y &= 0, \text{ if number gets in \cbrak{1,2,3,4,5}, \brak{\text{With probability } 1 -p = \frac{5}{6}}}
     \end{align}
     \item \textbf{Probability Mass Function (PMF):}\\
-    The PMF  of a Bernoulli random variable $X$ is given by:
+    The PMF  of a Bernoulli random variable $Y$ is given by:
     \begin{align}
-	P\brak{X = x} = p^x\brak{1 - p}^{1 - x}, x \in \cbrak{0,1}
+	P\brak{Y = y} = p^y\brak{1 - p}^{1 - y}, y \in \cbrak{0,1}
     \end{align}
     substituting $p = \frac{1}{6}$,\\
     \begin{align}
-     P\brak{X = 1} = 0.166666, P\brak{X = 0} = 0.833333
+     P\brak{Y = 1} = 0.166666, P\brak{Y = 0} = 0.833333
     \end{align}
     \begin{align}
-    	P\brak{X = x} = \begin{cases}
-    		0.166666, & x = 1 \\
-    		0.833333, & x = 0 \\
+    	P\brak{Y = y} = \begin{cases}
+    		0.166666, & y = 1 \\
+    		0.833333, & y = 0 \\
     		0, & \text{otherwise}
     	\end{cases}
     \end{align}
 
     \item \textbf{Cumulative Distribution function (CDF):}\\
-    The CDF of a discrete random variable is defined as:\\
+    The CDF of a discrete uniform random variable $X$ is:
     \begin{align}
-    	F_X\brak{x} = P\brak{X \leq x}
+        F_X(k) = P(X \leq k) = \frac{k}{6}, \quad k \in \{1,2,3,4,5,6\}
     \end{align}
     \begin{align}
-            F_X\brak{x} = \begin{cases}
-                    0, & x < 0 \\
-    \frac{5}{6}, & 0 \leq x < 1 \\
-    1, & x \geq 1
+        F_X(k) = \begin{cases}
+            0, & k < 1 \\
+            \frac{k}{6}, & 1 \leq k \leq 6 \\
+            1, & k > 6
+        \end{cases}
+    \end{align}
+    The CDF of a Bernoulli random variable Y is defined as:\\
+    \begin{align}
+    	F_Y\brak{y} = P\brak{Y \leq y}
+    \end{align}
+    \begin{align}
+            F_Y\brak{y} = \begin{cases}
+                    0, & y < 0 \\
+    \frac{5}{6}, & 0 \leq y < 1 \\
+    1, & y \geq 1
             \end{cases}
     \end{align}
-\end{enumerate}
-\section{Numerical Solution (Monte Carlo)}
+
+\item \textbf{Numerical Solution (Monte Carlo)}\\
 We can estimate the probability using the Monte Carlo method.  We simulate a large number of die rolls and count how many times we get a 6.
+\end{enumerate}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\columnwidth]{figs/pmf_die.png}
